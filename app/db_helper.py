@@ -15,7 +15,7 @@ class DatabaseHelper:
         )
 
     def get_session(self):
-        return self.session
+        return self.session()
 
 
 db_helper = DatabaseHelper(url=settings.db.url, echo=settings.db.echo)

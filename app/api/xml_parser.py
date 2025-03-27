@@ -1,4 +1,4 @@
-from xml.sax import make_parser, ContentHandler, SAXParseException
+from xml.sax import make_parser, ContentHandler
 from pathlib import Path
 
 

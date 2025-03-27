@@ -1,8 +1,8 @@
-"""Create Files, Tags, Attribute models
+"""Refresh structure
 
-Revision ID: b4c0a4abcc5f
+Revision ID: 986fb9a72185
 Revises: 
-Create Date: 2025-03-26 21:25:12.946637
+Create Date: 2025-03-27 15:07:00.721044
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'b4c0a4abcc5f'
+revision: str = '986fb9a72185'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -24,7 +24,8 @@ def upgrade() -> None:
     op.create_table('files',
     sa.Column('name', sa.String(), nullable=False),
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('name')
     )
     op.create_table('tags',
     sa.Column('name', sa.String(), nullable=False),
@@ -39,8 +40,7 @@ def upgrade() -> None:
     sa.Column('tag_id', sa.Integer(), nullable=False),
     sa.Column('id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['tag_id'], ['tags.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('name')
+    sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
 

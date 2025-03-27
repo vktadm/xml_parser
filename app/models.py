@@ -1,5 +1,3 @@
-from typing import List
-
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import (
     DeclarativeBase,
@@ -32,6 +30,6 @@ class Tags(Base):
 
 
 class Attributes(Base):
-    name: Mapped[str] = mapped_column(unique=True)
+    name: Mapped[str]
     value: Mapped[str]
     tag_id: Mapped[int] = mapped_column(ForeignKey("tags.id"))

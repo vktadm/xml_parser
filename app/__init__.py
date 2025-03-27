@@ -31,3 +31,9 @@ api.add_resource(
     "/tags/get-count",
     resource_class_kwargs={"logger": app.logger},
 )
+
+api.add_resource(
+    resources.TagAttributes,
+    "/tags/attributes/get",
+    resource_class_kwargs={"logger": app.logger},
+)
