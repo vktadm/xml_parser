@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shiporder orderid="889923">
+  <orderperson>John Doe</orderperson>
+  <shipto>
+    <name>Jane Smith</name>
+    <address>123 Main St</address>
+    <city>Anytown</city>
+    <country>USA</country>
+  </shipto>
+  <item>
+    <title>XML Basics</title>
+    <note>Essential reading</note>
+    <quantity>1</quantity>
+    <price>29.99</price>
+  </item>
+  <item>
+    <title>Advanced XML</title>
+    <quantity>2</quantity>
+    <price>49.99</price>
+  </item>
+</shiporder>

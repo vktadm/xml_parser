@@ -1,4 +1,12 @@
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr
+from typing import List
+
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import (
+    DeclarativeBase,
+    Mapped,
+    mapped_column,
+    declared_attr,
+)
 
 
 class Base(DeclarativeBase):
@@ -19,9 +27,11 @@ class Files(Base):
 
 
 class Tags(Base):
-    name: Mapped[str] = mapped_column(unique=True)
+    name: Mapped[str]
+    file_id: Mapped[int] = mapped_column(ForeignKey("files.id"))
 
 
 class Attributes(Base):
     name: Mapped[str] = mapped_column(unique=True)
     value: Mapped[str]
+    tag_id: Mapped[int] = mapped_column(ForeignKey("tags.id"))
